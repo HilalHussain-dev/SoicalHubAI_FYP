@@ -11,7 +11,7 @@ const NAV_ITEMS = [
     children: ['Canva', 'ChatGPT', 'Zapier', 'Google Drive', 'Dropbox', 'OneDrive'],
   },
   {
-    label: 'Made For',
+    label: 'Made for',
     children: ['Creators', 'Small Businesses', 'Marketing Teams', 'Agencies', 'Non-profits'],
   },
   {
@@ -35,11 +35,11 @@ function NavDropdown({ label, children }: { label: string; children: string[] })
   return (
     <div ref={ref} className="relative" onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}>
       <button
-        className="flex items-center gap-1 text-sm font-medium text-gray-700 hover:text-gray-900 py-2"
+        className="flex items-center gap-1 text-[15px] font-medium text-gray-700 hover:text-gray-900 py-2 px-3"
         onClick={() => setOpen(!open)}
       >
         {label}
-        <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-150 ${open ? 'rotate-180' : ''}`} />
+        <ChevronDown className={`w-4 h-4 text-gray-500 transition-transform duration-150 ${open ? 'rotate-180' : ''}`} />
       </button>
       {open && (
         <div className="absolute top-full left-0 mt-1 w-52 bg-white border border-gray-200 rounded-xl shadow-xl py-2 z-50">
@@ -62,21 +62,20 @@ export function Nav() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 w-full bg-white/90 backdrop-blur-md z-50 border-b border-gray-100">
+    <nav className="fixed top-0 w-full bg-white z-50 border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-[72px]">
           {/* Logo */}
-          <div className="flex items-center gap-8">
-            <a href="#" className="flex items-center gap-2.5">
-              <div className="w-8 h-8 bg-[#1a1a1a] rounded-lg flex items-center justify-center">
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                  <rect x="1" y="1" width="5" height="5" rx="1" fill="white" />
-                  <rect x="8" y="1" width="5" height="5" rx="1" fill="white" opacity="0.6" />
-                  <rect x="1" y="8" width="5" height="5" rx="1" fill="white" opacity="0.6" />
-                  <rect x="8" y="8" width="5" height="5" rx="1" fill="white" opacity="0.3" />
+          <div className="flex items-center gap-10">
+            <a href="#" className="flex items-center gap-2">
+              <div className="flex items-center justify-center text-[#1a1a1a]">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M16 6L3 11.5L16 17L29 11.5L16 6Z" fill="currentColor"/>
+                  <path d="M16 21L3 15.5V18.5L16 24L29 18.5V15.5L16 21Z" fill="currentColor"/>
+                  <path d="M16 26L3 20.5V23.5L16 29L29 23.5V20.5L16 26Z" fill="currentColor"/>
                 </svg>
               </div>
-              <span className="font-bold text-lg tracking-tight text-gray-900">Buffer</span>
+              <span className="font-extrabold text-[22px] tracking-tight text-gray-900">Buffer</span>
             </a>
 
             {/* Desktop nav */}
@@ -84,33 +83,33 @@ export function Nav() {
               {NAV_ITEMS.map((item) => (
                 <NavDropdown key={item.label} label={item.label} children={item.children} />
               ))}
-              <a href="#" className="text-sm font-medium text-gray-700 hover:text-gray-900 py-2 px-2">Pricing</a>
+              <a href="#pricing" className="text-[15px] font-medium text-gray-700 hover:text-gray-900 py-2 px-3">Pricing</a>
             </div>
           </div>
 
           {/* Right CTAs */}
           <div className="hidden lg:flex items-center gap-3">
-            <a href="#" className="text-sm font-medium text-gray-700 hover:text-gray-900">Log in</a>
-            <a href="#" className="bg-[#1a1a1a] text-white text-sm font-semibold px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors">
+            <a href="#" className="text-[15px] font-semibold text-gray-800 border border-gray-400 rounded-full px-5 py-2.5 hover:bg-gray-50 transition-colors">Log in</a>
+            <a href="#" className="bg-[#a6e59a] text-gray-900 text-[15px] font-semibold px-5 py-2.5 rounded-full hover:bg-[#95d489] transition-colors">
               Get started for free
             </a>
           </div>
 
           {/* Mobile hamburger */}
           <button className="lg:hidden p-2 text-gray-600" onClick={() => setMobileOpen(!mobileOpen)}>
-            {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
       </div>
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="lg:hidden border-t border-gray-100 bg-white px-4 py-4 space-y-3">
+        <div className="lg:hidden border-t border-gray-100 bg-white px-4 py-4 space-y-3 shadow-lg">
           {NAV_ITEMS.map((item) => (
             <details key={item.label} className="group">
-              <summary className="flex items-center justify-between py-2 text-sm font-medium text-gray-700 cursor-pointer list-none">
+              <summary className="flex items-center justify-between py-2 text-[15px] font-medium text-gray-700 cursor-pointer list-none">
                 {item.label}
-                <ChevronDown className="w-4 h-4 group-open:rotate-180 transition-transform" />
+                <ChevronDown className="w-4 h-4 text-gray-500 group-open:rotate-180 transition-transform" />
               </summary>
               <div className="ml-4 mt-1 space-y-1">
                 {item.children.map((child) => (
@@ -119,10 +118,10 @@ export function Nav() {
               </div>
             </details>
           ))}
-          <a href="#" className="block py-2 text-sm font-medium text-gray-700">Pricing</a>
-          <div className="pt-2 flex flex-col gap-2 border-t border-gray-100">
-            <a href="#" className="text-sm font-medium text-gray-700 py-2">Log in</a>
-            <a href="#" className="bg-[#1a1a1a] text-white text-sm font-semibold px-4 py-2.5 rounded-lg text-center">
+          <a href="#pricing" className="block py-2 text-[15px] font-medium text-gray-700">Pricing</a>
+          <div className="pt-4 flex flex-col gap-3 border-t border-gray-100">
+            <a href="#" className="text-[15px] font-semibold text-gray-800 border border-gray-400 rounded-full px-5 py-2.5 text-center hover:bg-gray-50 transition-colors">Log in</a>
+            <a href="#" className="bg-[#a6e59a] text-gray-900 text-[15px] font-semibold px-5 py-2.5 rounded-full text-center hover:bg-[#95d489] transition-colors">
               Get started for free
             </a>
           </div>

@@ -1,4 +1,14 @@
 import React from 'react';
+import { FaInstagram, FaFacebookF, FaXTwitter, FaLinkedinIn } from 'react-icons/fa6';
+import { SiThreads } from 'react-icons/si';
+
+const SOCIAL_ICONS = [
+  { id: 'IG', icon: <FaInstagram className="w-4 h-4" /> },
+  { id: 'FB', icon: <FaFacebookF className="w-4 h-4" /> },
+  { id: 'X', icon: <FaXTwitter className="w-4 h-4" /> },
+  { id: 'LI', icon: <FaLinkedinIn className="w-4 h-4" /> },
+  { id: 'TH', icon: <SiThreads className="w-4 h-4" /> },
+];
 
 const FOOTER_COLS = [
   {
@@ -27,21 +37,20 @@ export function Footer() {
         {/* Logo + social */}
         <div className="flex flex-col md:flex-row md:items-start gap-10 mb-14">
           <div className="shrink-0">
-            <a href="#" className="flex items-center gap-2.5 mb-5">
-              <div className="w-8 h-8 bg-[#1a1a1a] rounded-lg flex items-center justify-center">
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                  <rect x="1" y="1" width="5" height="5" rx="1" fill="white" />
-                  <rect x="8" y="1" width="5" height="5" rx="1" fill="white" opacity="0.6" />
-                  <rect x="1" y="8" width="5" height="5" rx="1" fill="white" opacity="0.6" />
-                  <rect x="8" y="8" width="5" height="5" rx="1" fill="white" opacity="0.3" />
+            <a href="#" className="flex items-center gap-2 mb-5 text-[#1a1a1a]">
+              <div className="flex items-center justify-center">
+                <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M16 6L3 11.5L16 17L29 11.5L16 6Z" fill="currentColor"/>
+                  <path d="M16 21L3 15.5V18.5L16 24L29 18.5V15.5L16 21Z" fill="currentColor"/>
+                  <path d="M16 26L3 20.5V23.5L16 29L29 23.5V20.5L16 26Z" fill="currentColor"/>
                 </svg>
               </div>
-              <span className="font-bold text-gray-900">Buffer</span>
+              <span className="font-extrabold text-[20px] tracking-tight text-gray-900">Buffer</span>
             </a>
             <div className="flex gap-3">
-              {['IG', 'FB', 'X', 'LI', 'TH'].map((s) => (
-                <a key={s} href="#" className="w-8 h-8 bg-gray-200 rounded-lg flex items-center justify-center text-[10px] font-bold text-gray-500 hover:bg-gray-300 transition-colors">
-                  {s}
+              {SOCIAL_ICONS.map((s) => (
+                <a key={s.id} href="#" className="w-8 h-8 bg-gray-200 rounded-lg flex items-center justify-center text-gray-500 hover:bg-gray-300 transition-colors hover:text-gray-900">
+                  {s.icon}
                 </a>
               ))}
             </div>
