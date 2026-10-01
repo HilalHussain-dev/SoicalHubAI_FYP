@@ -1,17 +1,19 @@
 import React from 'react';
+import { FaLinkedinIn, FaPinterestP, FaYoutube, FaXTwitter, FaGoogle, FaInstagram, FaMastodon, FaTiktok, FaFacebookF } from 'react-icons/fa6';
+import { SiBluesky, SiThreads } from 'react-icons/si';
 
 const CHANNELS = [
-  { name: 'LinkedIn', color: '#0A66C2', initial: 'in' },
-  { name: 'Threads', color: '#1a1a1a', initial: '⊕' },
-  { name: 'Pinterest', color: '#E60023', initial: 'P' },
-  { name: 'Bluesky', color: '#0085FF', initial: '🦋' },
-  { name: 'YouTube', color: '#FF0000', initial: '▶' },
-  { name: 'X / Twitter', color: '#1a1a1a', initial: 'X' },
-  { name: 'Google Business', color: '#4285F4', initial: 'G' },
-  { name: 'Instagram', color: '#E1306C', initial: '◻' },
-  { name: 'Mastodon', color: '#6364FF', initial: 'M' },
-  { name: 'TikTok', color: '#010101', initial: '♪' },
-  { name: 'Facebook', color: '#1877F2', initial: 'f' },
+  { name: 'LinkedIn', color: '#0A66C2', icon: <FaLinkedinIn className="w-5 h-5 text-white" /> },
+  { name: 'Threads', color: '#1a1a1a', icon: <SiThreads className="w-5 h-5 text-white" /> },
+  { name: 'Pinterest', color: '#E60023', icon: <FaPinterestP className="w-5 h-5 text-white" /> },
+  { name: 'Bluesky', color: '#0085FF', icon: <SiBluesky className="w-4 h-4 text-white" /> },
+  { name: 'YouTube', color: '#FF0000', icon: <FaYoutube className="w-5 h-5 text-white" /> },
+  { name: 'X / Twitter', color: '#1a1a1a', icon: <FaXTwitter className="w-4 h-4 text-white" /> },
+  { name: 'Google Business', color: '#4285F4', icon: <FaGoogle className="w-4 h-4 text-white" /> },
+  { name: 'Instagram', color: '#E1306C', icon: <FaInstagram className="w-5 h-5 text-white" /> },
+  { name: 'Mastodon', color: '#6364FF', icon: <FaMastodon className="w-4 h-4 text-white" /> },
+  { name: 'TikTok', color: '#010101', icon: <FaTiktok className="w-4 h-4 text-white" /> },
+  { name: 'Facebook', color: '#1877F2', icon: <FaFacebookF className="w-5 h-5 text-white" /> },
 ];
 
 export function Channels() {
@@ -36,7 +38,7 @@ export function Channels() {
                 className="w-9 h-9 rounded-xl flex items-center justify-center text-white font-bold text-sm"
                 style={{ backgroundColor: ch.color }}
               >
-                {ch.initial}
+                {ch.icon}
               </div>
               <span className="text-sm font-semibold text-gray-700 whitespace-nowrap">{ch.name}</span>
             </div>
