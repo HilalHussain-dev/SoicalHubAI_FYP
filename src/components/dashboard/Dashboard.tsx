@@ -1,7 +1,11 @@
 import React from 'react';
+import { connectFacebook } from "../../lib/facebook";
 import { TrendingUp, Users, Eye, MessageSquare, ArrowRight } from 'lucide-react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { cn } from '../../lib/utils';
+<button onClick={connectFacebook}>
+  Connect Facebook
+</button>
 
 // SVG Icons for Social Platforms
 const TwitterIcon = (props: React.SVGProps<SVGSVGElement>) => (
@@ -12,17 +16,17 @@ const TwitterIcon = (props: React.SVGProps<SVGSVGElement>) => (
 
 const InstagramIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
-    <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
-    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+    <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
   </svg>
 );
 
 const LinkedinIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
-    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-    <rect width="4" height="12" x="2" y="9"/>
-    <circle cx="4" cy="4" r="2"/>
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+    <rect width="4" height="12" x="2" y="9" />
+    <circle cx="4" cy="4" r="2" />
   </svg>
 );
 
@@ -110,34 +114,34 @@ export function Dashboard() {
             <ResponsiveContainer width="100%" height="100%">
               <LineChart data={chartData} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
                 <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e2e8f0" />
-                <XAxis 
-                  dataKey="name" 
-                  axisLine={false} 
-                  tickLine={false} 
-                  tick={{ fill: '#64748b', fontSize: 12 }} 
+                <XAxis
+                  dataKey="name"
+                  axisLine={false}
+                  tickLine={false}
+                  tick={{ fill: '#64748b', fontSize: 12 }}
                   dy={10}
                 />
-                <YAxis 
-                  axisLine={false} 
-                  tickLine={false} 
+                <YAxis
+                  axisLine={false}
+                  tickLine={false}
                   tick={{ fill: '#64748b', fontSize: 12 }}
                 />
-                <Tooltip 
+                <Tooltip
                   contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }}
                 />
-                <Line 
-                  type="monotone" 
-                  dataKey="audience" 
-                  stroke="#2563eb" 
-                  strokeWidth={3} 
-                  dot={{ r: 4, strokeWidth: 2 }} 
+                <Line
+                  type="monotone"
+                  dataKey="audience"
+                  stroke="#2563eb"
+                  strokeWidth={3}
+                  dot={{ r: 4, strokeWidth: 2 }}
                   activeDot={{ r: 6, strokeWidth: 0 }}
                 />
-                <Line 
-                  type="monotone" 
-                  dataKey="engagement" 
-                  stroke="#94a3b8" 
-                  strokeWidth={2} 
+                <Line
+                  type="monotone"
+                  dataKey="engagement"
+                  stroke="#94a3b8"
+                  strokeWidth={2}
                   dot={false}
                 />
               </LineChart>
@@ -153,7 +157,7 @@ export function Dashboard() {
               View all <ArrowRight className="w-4 h-4" />
             </button>
           </div>
-          
+
           <div className="flex-1 space-y-4">
             {[
               { time: 'Today, 2:00 PM', platform: 'twitter' as const, content: 'Excited to announce our new feature drop tomorrow! 🚀 #SaaS #BuildInPublic' },

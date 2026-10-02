@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaInstagram, FaFacebookF, FaXTwitter, FaLinkedinIn } from 'react-icons/fa6';
+import logo from '../assets/logo.png';
 import { SiThreads } from 'react-icons/si';
 
 const SOCIAL_ICONS = [
@@ -37,15 +38,11 @@ export function Footer() {
         {/* Logo + social */}
         <div className="flex flex-col md:flex-row md:items-start gap-10 mb-14">
           <div className="shrink-0">
-            <a href="#" className="flex items-center gap-2 mb-5 text-[#1a1a1a]">
+            <a href="#" className="flex items-center gap-2 mb-5">
               <div className="flex items-center justify-center">
-                <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M16 6L3 11.5L16 17L29 11.5L16 6Z" fill="currentColor"/>
-                  <path d="M16 21L3 15.5V18.5L16 24L29 18.5V15.5L16 21Z" fill="currentColor"/>
-                  <path d="M16 26L3 20.5V23.5L16 29L29 23.5V20.5L16 26Z" fill="currentColor"/>
-                </svg>
+                <img src={logo} alt="SocialHub Logo" className="w-8 h-8 object-contain" />
               </div>
-              <span className="font-extrabold text-[20px] tracking-tight text-gray-900">Buffer</span>
+              <span className="font-extrabold text-[20px] tracking-tight text-gray-900">SocialHub</span>
             </a>
             <div className="flex gap-3">
               {SOCIAL_ICONS.map((s) => (

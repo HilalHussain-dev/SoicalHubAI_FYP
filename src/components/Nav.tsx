@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ChevronDown, Menu, X } from 'lucide-react';
+import logo from '../assets/logo.png';
 
 const NAV_ITEMS = [
   {
@@ -68,14 +69,10 @@ export function Nav() {
           {/* Logo */}
           <div className="flex items-center gap-10">
             <a href="#" className="flex items-center gap-2">
-              <div className="flex items-center justify-center text-[#1a1a1a]">
-                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M16 6L3 11.5L16 17L29 11.5L16 6Z" fill="currentColor"/>
-                  <path d="M16 21L3 15.5V18.5L16 24L29 18.5V15.5L16 21Z" fill="currentColor"/>
-                  <path d="M16 26L3 20.5V23.5L16 29L29 23.5V20.5L16 26Z" fill="currentColor"/>
-                </svg>
+              <div className="flex items-center justify-center">
+                <img src={logo} alt="SocialHub Logo" className="w-8 h-8 object-contain" />
               </div>
-              <span className="font-extrabold text-[22px] tracking-tight text-gray-900">Buffer</span>
+              <span className="font-extrabold text-[22px] tracking-tight text-gray-900">SocialHub</span>
             </a>
 
             {/* Desktop nav */}
