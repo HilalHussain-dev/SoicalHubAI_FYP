@@ -40,3 +40,6 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
     console.log(`SocialHub AI API running on http://localhost:${PORT}`);
 });
+const facebookRoutes = require("./routes/facebook.routes");
+
+app.use("/api/auth/facebook", facebookRoutes);
