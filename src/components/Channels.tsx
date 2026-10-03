@@ -32,7 +32,7 @@ export function Channels() {
           {[...CHANNELS, ...CHANNELS].map((ch, i) => (
             <div
               key={i}
-              className="flex items-center gap-3 bg-white border border-gray-100 rounded-2xl px-5 py-3 shadow-sm hover:shadow-md transition-shadow cursor-pointer shrink-0"
+              className="flex items-center gap-3 bg-white border border-gray-100 rounded-2xl px-5 py-3 shadow-sm hover:shadow-xl hover:-translate-y-1 hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer shrink-0"
             >
               <div
                 className="w-9 h-9 rounded-xl flex items-center justify-center text-white font-bold text-sm"
