@@ -9,6 +9,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// =====================================================
+// ROUTES
+// =====================================================
+
 app.get("/", (req, res) => {
     res.json({
         message: "SocialHub AI API is running"
@@ -35,11 +39,17 @@ app.get("/api/db-test", async (req, res) => {
     }
 });
 
+// Facebook routes — must be registered BEFORE app.listen()
+const facebookRoutes = require("./routes/facebook.routes");
+app.use("/api/auth/facebook", facebookRoutes);
+
+// =====================================================
+// START SERVER
+// =====================================================
+
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
     console.log(`SocialHub AI API running on http://localhost:${PORT}`);
+    console.log(`Facebook connect: http://localhost:${PORT}/api/auth/facebook/connect`);
 });
-const facebookRoutes = require("./routes/facebook.routes");
-
-app.use("/api/auth/facebook", facebookRoutes);

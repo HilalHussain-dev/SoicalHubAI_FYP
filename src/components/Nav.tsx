@@ -1,21 +1,22 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { 
-  ChevronDown, 
-  Menu, 
-  X, 
-  LayoutGrid, 
-  Send, 
-  LineChart, 
-  MessageCircleHeart, 
-  Handshake, 
-  Link2, 
-  Wand2, 
+import logo from '../assets/logo.png';
+import {
+  ChevronDown,
+  Menu,
+  X,
+  LayoutGrid,
+  Send,
+  LineChart,
+  MessageCircleHeart,
+  Handshake,
+  Link2,
+  Wand2,
   Webhook,
   LucideIcon
 } from 'lucide-react';
-import { 
-  FaLinkedinIn, FaPinterestP, FaYoutube, FaXTwitter, 
-  FaGoogle, FaInstagram, FaMastodon, FaTiktok, FaFacebookF 
+import {
+  FaLinkedinIn, FaPinterestP, FaYoutube, FaXTwitter,
+  FaGoogle, FaInstagram, FaMastodon, FaTiktok, FaFacebookF
 } from 'react-icons/fa6';
 import { SiBluesky, SiThreads, SiSubstack } from 'react-icons/si';
 
@@ -201,13 +202,12 @@ function NavDropdown({ item }: { item: NavItem }) {
         <ChevronDown className={`w-4 h-4 text-gray-500 transition-transform duration-150 ${open ? 'rotate-180' : ''}`} />
       </button>
       {open && (
-        <div 
-          className={`absolute top-full left-0 mt-1 bg-white border border-gray-200 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.08)] py-2 z-50 ${
-            item.megaMenuType === 'features' ? 'w-[720px] p-4' : 
-            item.megaMenuType === 'integrations' ? 'w-[760px] p-6' :
-            item.megaMenuType === 'text-grid' ? 'w-[640px] p-4' :
-            'w-52'
-          }`}
+        <div
+          className={`absolute top-full left-0 mt-1 bg-white border border-gray-200 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.08)] py-2 z-50 ${item.megaMenuType === 'features' ? 'w-[720px] p-4' :
+              item.megaMenuType === 'integrations' ? 'w-[760px] p-6' :
+                item.megaMenuType === 'text-grid' ? 'w-[640px] p-4' :
+                  'w-52'
+            }`}
         >
           {item.megaMenuType === 'features' && item.megaMenuItems && (
             <div className="grid grid-cols-2 gap-x-4 gap-y-2">
@@ -271,7 +271,7 @@ function NavDropdown({ item }: { item: NavItem }) {
                     href="#"
                     className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-[#f7f7f7] transition-colors group"
                   >
-                    <div 
+                    <div
                       className="flex items-center justify-center w-6 h-6 rounded-md shadow-sm opacity-90 group-hover:opacity-100 transition-opacity"
                       style={{ backgroundColor: channel.color }}
                     >
@@ -357,43 +357,43 @@ export function Nav() {
               <div className="ml-4 mt-1 space-y-1">
                 {item.megaMenuType === 'features' && item.megaMenuItems
                   ? item.megaMenuItems.map((megaItem, idx) => (
-                      <a key={idx} href={megaItem.href} className="block py-2 text-sm text-gray-600 hover:text-gray-900">
-                        <div className="flex items-center gap-2">
-                          {megaItem.icon && <megaItem.icon className="w-4 h-4" />}
-                          <span className="font-medium">{megaItem.title}</span>
-                          {megaItem.badge && (
-                            <span className="px-1.5 py-0.5 text-[10px] font-medium bg-[#e6f4ea] text-[#137333] rounded uppercase">
-                              {megaItem.badge}
-                            </span>
-                          )}
-                        </div>
-                      </a>
-                    ))
+                    <a key={idx} href={megaItem.href} className="block py-2 text-sm text-gray-600 hover:text-gray-900">
+                      <div className="flex items-center gap-2">
+                        {megaItem.icon && <megaItem.icon className="w-4 h-4" />}
+                        <span className="font-medium">{megaItem.title}</span>
+                        {megaItem.badge && (
+                          <span className="px-1.5 py-0.5 text-[10px] font-medium bg-[#e6f4ea] text-[#137333] rounded uppercase">
+                            {megaItem.badge}
+                          </span>
+                        )}
+                      </div>
+                    </a>
+                  ))
                   : item.megaMenuType === 'text-grid' && item.megaMenuItems
-                  ? item.megaMenuItems.map((megaItem, idx) => (
+                    ? item.megaMenuItems.map((megaItem, idx) => (
                       <a key={idx} href={megaItem.href} className="block py-2 text-sm text-gray-600 hover:text-gray-900">
                         <span className="font-medium">{megaItem.title}</span>
                       </a>
                     ))
-                  : item.megaMenuType === 'integrations'
-                  ? INTEGRATION_CHANNELS.map((channel, idx) => (
-                      <a key={idx} href="#" className="block py-2 text-sm text-gray-600 hover:text-gray-900">
-                        <div className="flex items-center gap-2">
-                          <div 
-                            className="flex items-center justify-center w-5 h-5 rounded-md"
-                            style={{ backgroundColor: channel.color }}
-                          >
-                            {React.cloneElement(channel.icon as React.ReactElement<any>, { className: "w-3 h-3 text-white" })}
+                    : item.megaMenuType === 'integrations'
+                      ? INTEGRATION_CHANNELS.map((channel, idx) => (
+                        <a key={idx} href="#" className="block py-2 text-sm text-gray-600 hover:text-gray-900">
+                          <div className="flex items-center gap-2">
+                            <div
+                              className="flex items-center justify-center w-5 h-5 rounded-md"
+                              style={{ backgroundColor: channel.color }}
+                            >
+                              {React.cloneElement(channel.icon as React.ReactElement<any>, { className: "w-3 h-3 text-white" })}
+                            </div>
+                            <span className="font-medium">{channel.name}</span>
                           </div>
-                          <span className="font-medium">{channel.name}</span>
-                        </div>
-                      </a>
-                    ))
-                  : item.children?.map((child) => (
-                      <a key={child} href="#" className="block py-1.5 text-sm text-gray-600 hover:text-gray-900">
-                        {child}
-                      </a>
-                    ))}
+                        </a>
+                      ))
+                      : item.children?.map((child) => (
+                        <a key={child} href="#" className="block py-1.5 text-sm text-gray-600 hover:text-gray-900">
+                          {child}
+                        </a>
+                      ))}
               </div>
             </details>
           ))}

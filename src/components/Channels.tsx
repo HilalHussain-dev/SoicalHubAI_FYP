@@ -90,11 +90,12 @@ export function Channels() {
       <div className="relative overflow-hidden -mx-4">
 
         <div className="channel-track">
-          {[...CHANNELS, ...CHANNELS].map((ch, i) => (
-            <div
-              key={i}
-              className="flex items-center gap-3 bg-white border border-gray-100 rounded-2xl px-5 py-3 shadow-sm hover:shadow-xl hover:-translate-y-1 hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer shrink-0"
-            >
+
+          {[...CHANNELS, ...CHANNELS].map((ch, i) => {
+
+            const isFacebook = ch.name === 'Facebook';
+
+            return (
               <div
                 key={i}
                 onClick={isFacebook ? connectFacebook : undefined}
